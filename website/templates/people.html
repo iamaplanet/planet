@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MultiInput Demo</title>
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" rel="stylesheet">
+    <link href={% static 'people/dist/css/jq.multiinput.min.css' %} rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>List of Invitees:</h1>
+            <form>
+                <textarea class="form-control" id="participants" name="participants">[{"name":"ab","mobile_no":"cd","address":"cd"},{"name":"ef","mobile_no":"gh","address":"cd"}]</textarea>
+            </form>
+        </div>
+    </div>
+</div>
+<script crossorigin="anonymous" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script crossorigin="anonymous" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src={% static 'people/src/js/jq.multiinput.js' %}></script>
+<script>
+    $(document).ready(function () {
+        $('#participants').multiInput({
+            json: true,
+            input: $('<div class="row inputElement">\n' +
+                '<div class="multiinput-title col-xs-12">Invitee <span class="number">1</span></div>\n' +
+                '<div class="form-group col-xs-4">\n' +
+                '<input class="form-control" name="name" placeholder="Name" type="text">\n' +
+                '</div>\n' +
+                '<div class="form-group col-xs-4">\n' +
+                '<input class="form-control" name="mobile_no" placeholder="Contact Number" type="text">\n' +
+                '</div>\n' +
+                '<div class="form-group col-xs-4">\n' +
+                '<input class="form-control" name="address" placeholder="Address" type="text">\n' +
+                '</div>\n' +
+                '</div>\n'),
+            limit: 1500,
+            onElementAdd: function (el, plugin) {
+                console.log(plugin.elementCount);
+            },
+            onElementRemove: function (el, plugin) {
+                console.log(plugin.elementCount);
+            }
+        });
+    });
+</script>
+</body>
+</html>

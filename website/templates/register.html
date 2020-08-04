@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Register{% endblock %}
+{% block head %}
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href={% static 'register/vendor/bootstrap/css/bootstrap.min.css' %}>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static 'register/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static 'register/fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %}>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static 'register/vendor/animate/animate.css' %}>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static 'register/vendor/css-hamburgers/hamburgers.min.css' %}>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static 'register/vendor/select2/select2.min.css' %}>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static 'register/css/util.css' %}>
+	<link rel="stylesheet" type="text/css" href={% static 'register/css/main.css' %}>
+<!--===============================================================================================-->
+{% endblock %}
+
+
+{% block content %}
+
+    <!-- Page Content -->
+    <div class="page-heading header-text">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <br/><br/><br/><br/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container-contact100" style="background-image: url('../../static/register/images/bg-01.jpg');">
+      <div class="wrap-contact100">
+        <form class="contact100-form validate-form">
+          <span class="contact100-form-title">
+            Register Event Now
+          </span>
+  
+          <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
+            <span class="label-input100">Host Name *</span>
+            <input class="input100" type="text" name="name" placeholder="Enter Host name">
+          </div>
+
+          <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+            <span class="label-input100">Mobile Number *</span>
+            <input class="input100" type="text" name="email" placeholder="Enter mobile number">
+          </div>
+
+          <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+            <span class="label-input100">Enter your email *</span>
+            <input class="input100" type="text" name="email" placeholder="Enter your email">
+          </div>
+
+          <fieldset class="form-group">
+            <div class="row">
+              <span class="label-input100 col-sm-10 pt-0">From within Kakching?</span>
+              <div class="col-sm-2">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                  <label class="form-check-label" for="gridRadios1">
+                    Yes
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                  <label class="form-check-label" for="gridRadios2">
+                    No
+                  </label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="wrap-input100 validate-input" data-validate = "Address is required">
+            <span class="label-input100">Address *</span>
+            <input class="input100" type="text" name="address" placeholder="Address">
+
+          <hr>
+
+            <div class="form-row align-items-center">
+              <div class="col-auto my-1">
+                <span class="label-input100 mr-sm-2">Event</span>
+              </div>
+              <div class="col-auto my-1">
+                <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                  <option selected>Choose...</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+            </div>
+          <br/>
+
+          <div class="wrap-input100 rs1-wrap-input100">
+            <span class="label-input100">Event Date</span>
+            <input class="input100" type="date" id="birthday" name="birthday">
+          </div>
+
+          <div class="wrap-input100 validate-input" data-validate = "Message is required">
+            <span class="label-input100">Description</span>
+            <textarea class="input100" name="message" placeholder="Your description here..."></textarea>
+          </div>
+  
+          <div class="container-contact100-form-btn">
+            <div class="wrap-contact100-form-btn">
+              <div class="contact100-form-bgbtn"></div>
+              <button class="contact100-form-btn">
+                Register
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+{% endblock %}
+
+{% block footer %} {% endblock %}
