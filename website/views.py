@@ -14,7 +14,9 @@ def register(request):
         form = CostumerForm(request.POST or None)
         if form.is_valid():
             form.save()
-        return render(request, 'register.html', {})
+            return render(request, 'index.html', {})
+        else:
+            return render(request, 'register.html', {})
 
     else:
         return render(request, 'register.html', {})
