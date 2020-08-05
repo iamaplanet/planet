@@ -16,10 +16,10 @@ def register(request):
             form.save()
             return render(request, 'index.html', {})
         else:
-            return render(request, 'register.html', {})
+            return render(request, 'contact.html', {})
 
     else:
-        return render(request, 'contact.html', {})
+        return render(request, 'register.html', {})
 
 def contact(request):
     return render(request, 'contact.html', {})
