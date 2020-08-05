@@ -19,7 +19,7 @@ def register(request):
             return render(request, 'register.html', {})
 
     else:
-        return render(request, 'register.html', {})
+        return render(request, 'contact.html', {})
 
 def contact(request):
     return render(request, 'contact.html', {})
