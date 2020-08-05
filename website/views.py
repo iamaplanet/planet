@@ -12,11 +12,8 @@ def about(request):
 def register(request):
     if request.method == "POST":
         form = CostumerForm(request.POST or None)
-        if form.is_valid():
-            form.save()
-            return render(request, 'index.html', {})
-        else:
-            return render(request, 'contact.html', {})
+        form.save()
+        return render(request, 'index.html', {})
 
     else:
         return render(request, 'register.html', {})
