@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from .models import Costumer
+from .forms import CostumerForm
 
 # Create your views here.
 def home(request):
@@ -8,7 +10,14 @@ def about(request):
     return render(request, 'about.html', {})
 
 def register(request):
-    return render(request, 'register.html', {})
+    if request.method == "POST":
+        form = CostumerForm(request.POST or None)
+        if form.is_valid():
+            form.save()
+        return render(request, 'register.html', {})
+
+    else:
+        return render(request, 'register.html', {})
 
 def contact(request):
     return render(request, 'contact.html', {})
