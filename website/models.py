@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class Costumer(models.Model):
     host_name = models.CharField(max_length=50)
-    mobile_number = models.PositiveIntegerField()
+    mobile_number = models.IntegerField()
     email = models.EmailField(max_length=50)
     from_kakching = models.BooleanField()
     address = models.CharField(max_length=200)
