@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Costumer
 from .forms import CostumerForm
+from django.contrib import messages
 
 # Create your views here.
 def home(request):
@@ -16,7 +17,24 @@ def register(request):
             form.save()
             return render(request, 'people.html', {})
         else:
-            return render(request, 'register.html', {'msg': form.errors})
+            host_name = request.POST['host_name']
+            mobile_number = request.POST['mobile_number']
+            email = request.POST['email']
+            from_kakching = request.POST['from_kakching']
+            address = request.POST['address']
+            event = request.POST['event']
+            event_date = request.POST['event_date']
+            description = request.POST['description']
+            messages.success(request, ('There was an error in your form! Please try again...'))
+            return render(request, 'register.html', {'host_name': host_name,
+                'mobile_number': mobile_number,
+                'email': email,
+                'from_kakching': from_kakching,
+                'address': address,
+                'event': event,
+                'event_date': event_date,
+                'description': description,
+            })
 
     else:
         return render(request, 'register.html', {})

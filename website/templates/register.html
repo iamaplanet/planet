@@ -137,22 +137,35 @@
           </div>
         </form>
 -->
+
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            {% endfor %}
+          {% endif %}
+
+
         <form method="POST" action="{% url 'register' %}" class="contact100-form">
           {% csrf_token %}
           <span class="contact100-form-title">
-            Register Event {{ msg }}
+            Register Event
           </span>
           <div class="wrap-input100 rs1-wrap-input100">
             <label class="label-input100">Host Name:</label>
-            <input type="text" class="form-control" placeholder="Host Name" name="host_name">
+            <input type="text" class="form-control" placeholder="Host Name" name="host_name" value="{{ host_name }}">
           </div>
           <div class="form-group rs1-wrap-input100">
             <label class="label-input100">Mobile Number:</label>
-            <input type="text" class="form-control" placeholder="Mobile Number" name="mobile_number">
+            <input type="text" class="form-control" placeholder="Mobile Number" name="mobile_number" value="{{mobile_number}}">
           </div>
           <div class="form-group wrap-input100">
             <label class="label-input100">Email Address:</label>
-            <input type="email" class="form-control" aria-describedby="emailHelp" name="email" placeholder="Email Address">
+            <input type="email" class="form-control" aria-describedby="emailHelp" name="email" placeholder="Email Address" value="{{ email }}">
           </div>
           <fieldset class="form-inline">
             <legend class="col-form-label wrap-input100 mb-2 mr-sm-2 label-input100">From within Kakching?</legend>
@@ -171,7 +184,7 @@
           </fieldset>
           <div class="form-group wrap-input100">
             <label class="label-input100">Address:</label>
-            <input type="text" class="form-control" placeholder="Address" name="address">
+            <input type="text" class="form-control" placeholder="Address" name="address" value="{{ address }}">
           <hr>
           <label class="my-1 mr-2 label-input100" for="inlineFormCustomSelectPref">Event:</label>
           <select class="custom-select my-1 mr-sm-2" name="event">
@@ -182,11 +195,11 @@
           </select>
           <div class="form-group wrap-input100">
             <label class="label-input100">Event Date:</label>
-            <input class="form-control" type="date" name="event_date">
+            <input class="form-control" type="date" name="event_date" value="{{ event_date }}">
           </div>
           <div class="form-group wrap-input100">
             <label class="label-input100">Description:</label>
-            <textarea class="form-control" name="description" rows="3" placeholder="Enter description of the event here...."></textarea>
+            <textarea class="form-control" name="description" rows="3" placeholder="Enter description of the event here....">{{ description }}</textarea>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
