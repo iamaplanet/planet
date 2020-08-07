@@ -42,8 +42,14 @@ def register(request):
 def contact(request):
     return render(request, 'contact.html', {})
 
+def status(request):
+    return render(request, 'status.html', {})
+
 def people(request):
     return render(request, 'people.html', {})
 
 def invitation(request):
     return render(request, 'invitation.html', {})
+
+def faq(request):
+    return render(request, 'faq.html', {})

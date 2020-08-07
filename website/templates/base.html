@@ -64,6 +64,7 @@ https://templatemo.com/tm-545-finance-business
 
     <!-- Footer Starts Here -->
 {% block footer %}{% endblock %}
+{% block copyright %}
       <div class="sub-footer">
         <div class="container">
           <div class="row">
@@ -73,7 +74,7 @@ https://templatemo.com/tm-545-finance-business
           </div>
         </div>
       </div>
-      
+{% endblock %}
   
       <!-- Bootstrap core JavaScript -->
       <script src={% static 'website/vendor/jquery/jquery.min.js' %}></script>
@@ -95,6 +96,7 @@ https://templatemo.com/tm-545-finance-business
             }
         }
       </script>
+      {% block script %} {% endblock %}
   
     </body>
   </html>
