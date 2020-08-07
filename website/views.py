@@ -15,7 +15,7 @@ def register(request):
         form = CostumerForm(request.POST or None)
         if form.is_valid():
             form.save()
-            return render(request, 'people.html', {})
+            return render(request, 'invitation.html', {})
         else:
             host_name = request.POST['host_name']
             mobile_number = request.POST['mobile_number']
@@ -44,3 +44,6 @@ def contact(request):
 
 def people(request):
     return render(request, 'people.html', {})
+
+def invitation(request):
+    return render(request, 'invitation.html', {})
