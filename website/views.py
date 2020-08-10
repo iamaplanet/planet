@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic import ListView, DetailView
 from .models import Costumer
 from .forms import CostumerForm
 from django.contrib import messages
@@ -53,3 +54,10 @@ def invitation(request):
 
 def faq(request):
     return render(request, 'faq.html', {})
+
+class statusView(ListView):
+    model = Costumer
+    template_name = 'statusView.html'
+
+def eventView(request, evnt):
+    return render(request, 'registerEvent.html', {'evnt':evnt})
