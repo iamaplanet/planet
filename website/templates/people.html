@@ -24,12 +24,13 @@
     <div class="row">
         <div class="col-xs-12">
             <h1>List of Invitees:</h1>
-            <form>
+            <form method="POST">
                 <textarea class="form-control" id="participants" name="participants">[{"name":"Name","mobile_no":"Contact Number","address":"Address"},{"name":"Name","mobile_no":"Contact Number","address":"Address"},{"name":"Name","mobile_no":"Contact Number","address":"Address"},{"name":"Name","mobile_no":"Contact Number","address":"Address"},{"name":"Name","mobile_no":"Contact Number","address":"Address"}]</textarea>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>
-</div>
+</div><br/>
 {% endblock %}
 
 {% block script %}
