@@ -3,6 +3,9 @@ from django.views.generic import ListView, DetailView
 from .models import Costumer
 from .forms import CostumerForm
 from django.contrib import messages
+import datetime
+import random
+
 
 # Create your views here.
 def home(request):
@@ -12,6 +15,9 @@ def about(request):
     return render(request, 'about.html', {})
 
 def register(request):
+    Date = datetime.datetime.now()
+    Date_ = Date.strftime("%Y%m%d%H%M%S")
+
     if request.method == "POST":
         form = CostumerForm(request.POST or None)
         if form.is_valid():
@@ -38,7 +44,7 @@ def register(request):
             })
 
     else:
-        return render(request, 'register.html', {})
+        return render(request, 'register.html', {'date':Date_})
 
 def contact(request):
     return render(request, 'contact.html', {})
@@ -60,4 +66,9 @@ class statusView(ListView):
     template_name = 'statusView.html'
 
 def eventView(request, evnt):
-    return render(request, 'registerEvent.html', {'evnt':evnt})
+    Date = datetime.datetime.now()
+    Date_ = Date.strftime("%Y%m%d%H")
+    random_no = random.randint(1000, 9999)
+    application_no = str(Date_)+str(random_no)
+
+    return render(request, 'registerEvent.html', {'evnt':evnt, 'date':application_no})
