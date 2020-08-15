@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
-from .models import Costumer
-from .forms import CostumerForm
+from .models import Costumer, Invitation, Invitee
+from .forms import CostumerForm, InvitationForm, InviteeForm
 from django.contrib import messages
 import datetime
 import random
@@ -16,14 +16,24 @@ def about(request):
 
 def register(request):
     Date = datetime.datetime.now()
-    Date_ = Date.strftime("%Y%m%d%H%M%S")
+    Date_ = Date.strftime("%Y-%m%d-%H%M-%S")
+    n = random.randint(10,99)
+    application_number = Date_ + str(n)
 
     if request.method == "POST":
         form = CostumerForm(request.POST or None)
-        if form.is_valid():
+        if request.POST['event']=='error':
+            application_number = request.POST['application_number']
+            from_kakching = request.POST['from_kakching']
+            event = request.POST['event']
+            messages.success(request, ('Please select an event...'))
+            return render(request, 'register.html', {'application_number':application_number,'from_kakching': from_kakching,'event': event})
+        elif form.is_valid():
+            application_number = request.POST['application_number']
             form.save()
-            return render(request, 'invitation.html', {})
+            return render(request, 'invitation.html', {'application_number':application_number})
         else:
+            application_number = request.POST['application_number']
             host_name = request.POST['host_name']
             mobile_number = request.POST['mobile_number']
             email = request.POST['email']
@@ -31,20 +41,19 @@ def register(request):
             address = request.POST['address']
             event = request.POST['event']
             event_date = request.POST['event_date']
-            description = request.POST['description']
             messages.success(request, ('There was an error in your form! Please try again...'))
-            return render(request, 'register.html', {'host_name': host_name,
+            return render(request, 'register.html', {'application_number':application_number,
+                'host_name': host_name,
                 'mobile_number': mobile_number,
                 'email': email,
                 'from_kakching': from_kakching,
                 'address': address,
                 'event': event,
                 'event_date': event_date,
-                'description': description,
             })
 
     else:
-        return render(request, 'register.html', {'date':Date_})
+        return render(request, 'register.html', {'date':application_number})
 
 def contact(request):
     return render(request, 'contact.html', {})
@@ -52,11 +61,47 @@ def contact(request):
 def status(request):
     return render(request, 'status.html', {})
 
-def people(request):
-    return render(request, 'people.html', {})
-
 def invitation(request):
+    if request.method == "POST":
+        application_number = request.POST.get('application_number')
+        invitation = request.POST.get('invitation')
+        host = Costumer.objects.get(application_number=application_number)
+        data = {'host':host,'invitation':invitation}
+        form = InvitationForm(data)
+        if form.is_valid():
+            form.save()
+            return render(request, 'people.html', {'application_number':application_number})
+        else:
+            return render(request, 'invitation.html', {'msg':form.errors,'invitation':invitation,'host':host})
     return render(request, 'invitation.html', {})
+
+def people(request):
+    if request.method == "POST":
+        application_number = request.POST.get('application_number')
+        nameList = request.POST.getlist('name')
+        mobile_noList = request.POST.getlist('mobile_no')
+        addressList = request.POST.getlist('address')
+        host = Costumer.objects.get(application_number=application_number)
+        InviteeList = []
+        i = 0
+        for name in nameList:
+            invitee = {'host':host, 'name':name, 'mobile_no':mobile_noList[i], 'address':addressList[i]}
+            InviteeList.append(invitee)
+            i = i+1
+        for invitee in InviteeList:
+            form = InviteeForm(invitee)
+            if form.is_valid():
+                form.save()
+        return render(request, 'index.html', {})
+
+        data = {'host':host,'invitation':invitation}
+        form = InviteeForm(data)
+        if form.is_valid():
+            form.save()
+            return render(request, 'people.html', {})
+        else:
+            return render(request, 'invitation.html', {'msg':form.errors,'invitation':invitation,'host':host})
+    return render(request, 'people.html', {})
 
 def faq(request):
     return render(request, 'faq.html', {})
@@ -69,6 +114,6 @@ def eventView(request, evnt):
     Date = datetime.datetime.now()
     Date_ = Date.strftime("%Y%m%d%H")
     random_no = random.randint(1000, 9999)
-    application_no = str(Date_)+str(random_no)
+    application_number = str(Date_)+str(random_no)
 
-    return render(request, 'registerEvent.html', {'evnt':evnt, 'date':application_no})
+    return render(request, 'registerEvent.html', {'evnt':evnt, 'date':application_number})

@@ -79,7 +79,12 @@
             Register Event
           </span>
           <div class="form-group wrap-input100">
-          <input type="text" class="form-control" name="application_number" value="Application No : {{ date}}"  readonly>
+            <label class="label-input100">Application No:</label>
+          {% if messages %}
+          <input type="text" class="form-control" name="application_number" value="{{application_number}}"  readonly>
+          {% else %}
+          <input type="text" class="form-control" name="application_number" value="{{date}}"  readonly>
+          {% endif %}
           </div>
           <div class="wrap-input100 rs1-wrap-input100">
             <label class="label-input100">Host Name:</label>
@@ -93,6 +98,41 @@
             <label class="label-input100">Email Address:</label>
             <input type="email" class="form-control" aria-describedby="emailHelp" name="email" placeholder="Email Address" value="{{ email }}">
           </div>
+          {% if messages %}
+            {%if from_kakching == 'False'%}
+            <fieldset class="form-inline">
+              <legend class="col-form-label wrap-input100 mb-2 mr-sm-2 label-input100">From within Kakching?</legend>
+              <div class="form-check wrap-input100 mb-2 mr-sm-2">
+                <input class="form-check-input" type="radio" name="from_kakching" value="True">
+                <label class="form-check-label label-input100">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check wrap-input100 mb-2 mr-sm-2">
+                <input class="form-check-input" type="radio" name="from_kakching" value="False" checked>
+                <label class="form-check-label label-input100" for="gridRadios2">
+                  No
+                </label>
+              </div>
+            </fieldset>
+            {% else %}
+            <fieldset class="form-inline">
+              <legend class="col-form-label wrap-input100 mb-2 mr-sm-2 label-input100">From within Kakching?</legend>
+              <div class="form-check wrap-input100 mb-2 mr-sm-2">
+                <input class="form-check-input" type="radio" name="from_kakching" value="True" checked>
+                <label class="form-check-label label-input100">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check wrap-input100 mb-2 mr-sm-2">
+                <input class="form-check-input" type="radio" name="from_kakching" value="False">
+                <label class="form-check-label label-input100" for="gridRadios2">
+                  No
+                </label>
+              </div>
+            </fieldset>
+            {% endif %}
+          {% else %}
           <fieldset class="form-inline">
             <legend class="col-form-label wrap-input100 mb-2 mr-sm-2 label-input100">From within Kakching?</legend>
             <div class="form-check wrap-input100 mb-2 mr-sm-2">
@@ -108,13 +148,147 @@
               </label>
             </div>
           </fieldset>
+          {% endif %}
           <div class="form-group wrap-input100">
             <label class="label-input100">Address:</label>
             <input type="text" class="form-control" placeholder="Address" name="address" value="{{ address }}">
           <hr>
           <label class="my-1 mr-2 label-input100" for="inlineFormCustomSelectPref">Event:</label>
+          {% if messages %}
+            {%if event == 'Sosti Puja'%}
+            <select class="custom-select my-1 mr-sm-2" name="event">
+              <option value='error'>Choose...</option>
+              <option value="Sosti Puja" selected>Sosti Puja</option>
+              <option value="Na Hutpa/Churakaran">Na Hutpa/Churakaran</option>
+              <option value="Birthday Party">Birthday Party</option>
+              <option value="Luhongba/Wedding">Luhongba/Wedding</option>
+              <option value="Aasti">Aasti</option>
+              <option value="Sharradha">Sharradha</option>
+              <option value="Firoi/Death Aniversary">Firoi/Death Aniversary</option>
+              <option value="Vacations">Vacations</option>
+              <option value="Trips/Tours">Trips/Tours</option>
+            </select>
+            {%elif event == 'Na Hutpa/Churakaran'%}
+            <select class="custom-select my-1 mr-sm-2" name="event">
+              <option value='error'>Choose...</option>
+              <option value="Sosti Puja">Sosti Puja</option>
+              <option value="Na Hutpa/Churakaran" selected>Na Hutpa/Churakaran</option>
+              <option value="Birthday Party">Birthday Party</option>
+              <option value="Luhongba/Wedding">Luhongba/Wedding</option>
+              <option value="Aasti">Aasti</option>
+              <option value="Sharradha">Sharradha</option>
+              <option value="Firoi/Death Aniversary">Firoi/Death Aniversary</option>
+              <option value="Vacations">Vacations</option>
+              <option value="Trips/Tours">Trips/Tours</option>
+            </select>
+            {%elif event == 'Birthday Party'%}
+            <select class="custom-select my-1 mr-sm-2" name="event">
+              <option value='error'>Choose...</option>
+              <option value="Sosti Puja">Sosti Puja</option>
+              <option value="Na Hutpa/Churakaran">Na Hutpa/Churakaran</option>
+              <option value="Birthday Party" selected>Birthday Party</option>
+              <option value="Luhongba/Wedding">Luhongba/Wedding</option>
+              <option value="Aasti">Aasti</option>
+              <option value="Sharradha">Sharradha</option>
+              <option value="Firoi/Death Aniversary">Firoi/Death Aniversary</option>
+              <option value="Vacations">Vacations</option>
+              <option value="Trips/Tours">Trips/Tours</option>
+            </select>
+            {%elif event == 'Luhongba/Wedding'%}
+            <select class="custom-select my-1 mr-sm-2" name="event">
+              <option value='error'>Choose...</option>
+              <option value="Sosti Puja">Sosti Puja</option>
+              <option value="Na Hutpa/Churakaran">Na Hutpa/Churakaran</option>
+              <option value="Birthday Party">Birthday Party</option>
+              <option value="Luhongba/Wedding" selected>Luhongba/Wedding</option>
+              <option value="Aasti">Aasti</option>
+              <option value="Sharradha">Sharradha</option>
+              <option value="Firoi/Death Aniversary">Firoi/Death Aniversary</option>
+              <option value="Vacations">Vacations</option>
+              <option value="Trips/Tours">Trips/Tours</option>
+            </select>
+            {%elif event == 'Aasti'%}
+            <select class="custom-select my-1 mr-sm-2" name="event">
+              <option value='error'>Choose...</option>
+              <option value="Sosti Puja">Sosti Puja</option>
+              <option value="Na Hutpa/Churakaran">Na Hutpa/Churakaran</option>
+              <option value="Birthday Party">Birthday Party</option>
+              <option value="Luhongba/Wedding">Luhongba/Wedding</option>
+              <option value="Aasti" selected>Aasti</option>
+              <option value="Sharradha">Sharradha</option>
+              <option value="Firoi/Death Aniversary">Firoi/Death Aniversary</option>
+              <option value="Vacations">Vacations</option>
+              <option value="Trips/Tours">Trips/Tours</option>
+            </select>
+            {%elif event == 'Sharradha'%}
+            <select class="custom-select my-1 mr-sm-2" name="event">
+              <option value='error'>Choose...</option>
+              <option value="Sosti Puja">Sosti Puja</option>
+              <option value="Na Hutpa/Churakaran">Na Hutpa/Churakaran</option>
+              <option value="Birthday Party">Birthday Party</option>
+              <option value="Luhongba/Wedding">Luhongba/Wedding</option>
+              <option value="Aasti">Aasti</option>
+              <option value="Sharradha" selected>Sharradha</option>
+              <option value="Firoi/Death Aniversary">Firoi/Death Aniversary</option>
+              <option value="Vacations">Vacations</option>
+              <option value="Trips/Tours">Trips/Tours</option>
+            </select>
+            {%elif event == 'Firoi/Death Aniversary'%}
+            <select class="custom-select my-1 mr-sm-2" name="event">
+              <option value='error'>Choose...</option>
+              <option value="Sosti Puja">Sosti Puja</option>
+              <option value="Na Hutpa/Churakaran">Na Hutpa/Churakaran</option>
+              <option value="Birthday Party">Birthday Party</option>
+              <option value="Luhongba/Wedding">Luhongba/Wedding</option>
+              <option value="Aasti">Aasti</option>
+              <option value="Sharradha">Sharradha</option>
+              <option value="Firoi/Death Aniversary" selected>Firoi/Death Aniversary</option>
+              <option value="Vacations">Vacations</option>
+              <option value="Trips/Tours">Trips/Tours</option>
+            </select>
+            {%elif event == 'Vacations'%}
+            <select class="custom-select my-1 mr-sm-2" name="event">
+              <option value='error'>Choose...</option>
+              <option value="Sosti Puja">Sosti Puja</option>
+              <option value="Na Hutpa/Churakaran">Na Hutpa/Churakaran</option>
+              <option value="Birthday Party">Birthday Party</option>
+              <option value="Luhongba/Wedding">Luhongba/Wedding</option>
+              <option value="Aasti">Aasti</option>
+              <option value="Sharradha">Sharradha</option>
+              <option value="Firoi/Death Aniversary">Firoi/Death Aniversary</option>
+              <option value="Vacations" selected>Vacations</option>
+              <option value="Trips/Tours">Trips/Tours</option>
+            </select>
+            {%elif event == 'Trips/Tours'%}
+            <select class="custom-select my-1 mr-sm-2" name="event">
+              <option value='error'>Choose...</option>
+              <option value="Sosti Puja">Sosti Puja</option>
+              <option value="Na Hutpa/Churakaran">Na Hutpa/Churakaran</option>
+              <option value="Birthday Party">Birthday Party</option>
+              <option value="Luhongba/Wedding">Luhongba/Wedding</option>
+              <option value="Aasti">Aasti</option>
+              <option value="Sharradha">Sharradha</option>
+              <option value="Firoi/Death Aniversary">Firoi/Death Aniversary</option>
+              <option value="Vacations">Vacations</option>
+              <option value="Trips/Tours" selected>Trips/Tours</option>
+            </select>
+            {% else %}
+            <select class="custom-select my-1 mr-sm-2" name="event">
+              <option value='error' selected>Choose...</option>
+              <option value="Sosti Puja">Sosti Puja</option>
+              <option value="Na Hutpa/Churakaran">Na Hutpa/Churakaran</option>
+              <option value="Birthday Party">Birthday Party</option>
+              <option value="Luhongba/Wedding">Luhongba/Wedding</option>
+              <option value="Aasti">Aasti</option>
+              <option value="Sharradha">Sharradha</option>
+              <option value="Firoi/Death Aniversary">Firoi/Death Aniversary</option>
+              <option value="Vacations">Vacations</option>
+              <option value="Trips/Tours">Trips/Tours</option>
+            </select>
+            {% endif %}
+          {% else %}
           <select class="custom-select my-1 mr-sm-2" name="event">
-            <option disabled="disabled" selected>Choose...</option>
+            <option value='error' selected>Choose...</option>
             <option value="Sosti Puja">Sosti Puja</option>
             <option value="Na Hutpa/Churakaran">Na Hutpa/Churakaran</option>
             <option value="Birthday Party">Birthday Party</option>
@@ -125,13 +299,11 @@
             <option value="Vacations">Vacations</option>
             <option value="Trips/Tours">Trips/Tours</option>
           </select>
+          {% endif %}
+
           <div class="form-group wrap-input100">
             <label class="label-input100">Event Date:</label>
             <input class="form-control" type="date" name="event_date" value="{{ event_date }}">
-          </div>
-          <div class="form-group wrap-input100">
-            <label class="label-input100">Description:</label>
-            <textarea class="form-control" name="description" rows="3" placeholder="Enter description of the event here....">{{ description }}</textarea>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>

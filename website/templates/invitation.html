@@ -22,8 +22,32 @@
       <span>Choose from our wide range of preset invitation templates</span>
     </div>
 
+
+    {{msg}}{{invitation}}{{host}}
     <div class="container ">
-        <a href="people.html" class="filled-button">Next</a>
+      <form method="POST" action="{% url 'invitation' %}">
+        {% csrf_token %}
+        <input type="text" class="form-control" placeholder="Host Name" name="application_number" value="{{ application_number }}" readonly>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="invitation" id="invitation1" value="1" checked>
+          <label class="form-check-label" for="invitation1">
+            1
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="invitation" id="invitation2" value="2">
+          <label class="form-check-label" for="invitation2">
+            2
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="invitation" id="invitation3" value="3">
+          <label class="form-check-label" for="invitation3">
+            3
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
     </div>
     <br/><br/>
     
