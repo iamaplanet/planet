@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="TemplateMo">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>{% block title %}Home{% endblock %}</title>
 
     
@@ -44,17 +44,39 @@ https://templatemo.com/tm-545-finance-business
     <!-- Header -->
 
     <header class="">
+      
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="navbar-brand" href="index.html"><h2>Ishaifu</h2></a>
+          <img src={% static 'website/assets/images/logo.jpg' %} width="50" height="68.544">
+          {% block Ishaifu %}<a class="navbar-brand col-md-4" href="{% url 'home' %}"><h2>Ishaifu</h2></a>{% endblock %}
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
+            {% block navlink %}
             <ul class="navbar-nav ml-auto">
-              {% block navlink %}
-              {% endblock %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">Home
+                <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'register' %}">Register</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'status' %}">Status</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'faq' %}">FAQ</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+              </li>
             </ul>
+            {% endblock %}
           </div>
         </div>
       </nav>
@@ -76,6 +98,10 @@ https://templatemo.com/tm-545-finance-business
       </div>
 {% endblock %}
   
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
       <!-- Bootstrap core JavaScript -->
       <script src={% static 'website/vendor/jquery/jquery.min.js' %}></script>
       <script src={% static 'website/vendor/bootstrap/js/bootstrap.bundle.min.js' %}></script>

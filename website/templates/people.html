@@ -7,6 +7,8 @@
     <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" rel="stylesheet">
     <link href={% static 'people/dist/css/jq.multiinput.min.css' %} rel="stylesheet">
 {% endblock %}
+{% block Ishaifu %}{% endblock %}
+{% block navlink %}{% endblock %}
 
 {% block content %}
     <!-- Page Content -->
@@ -20,14 +22,15 @@
         </div>
       </div>
 
+      {{msg}}
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
-            <h1>List of Invitees:</h1>
             <form method="POST" action="{% url 'people' %}">
                 {% csrf_token %}
-                <input type="text" class="form-control" placeholder="Host Name" name="application_number" value="{{ application_number }}" readonly>
-                <textarea class="form-control" id="participants" name="participants">[{"name":"Name","mobile_no":"Contact Number","address":"Address"},{"name":"Name","mobile_no":"Contact Number","address":"Address"},{"name":"Name","mobile_no":"Contact Number","address":"Address"},{"name":"Name","mobile_no":"Contact Number","address":"Address"},{"name":"Name","mobile_no":"Contact Number","address":"Address"},{"name":"Name","mobile_no":"Contact Number","address":"Address"},{"name":"Name","mobile_no":"Contact Number","address":"Address"}]</textarea>
+                <br><input type="text" class="form-control" placeholder="Application Number" name="application_number" value="{{ application_number }}" readonly>
+                <h1>List of Invitees:</h1>
+                <textarea class="form-control" id="participants" name="participants">[{"name":"Name","mobile_no":"Contact Number","address":"Address"}]</textarea>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
@@ -66,3 +69,4 @@
     });
 </script>
 {% endblock %}
+{% block copyright %}{% endblock %}

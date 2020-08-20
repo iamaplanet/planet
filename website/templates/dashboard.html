@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% load static %}
+
+{% block content %}
+
+    <!-- Page Content -->
+    <div class="page-heading header-text">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <br/><br/><br/><br/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br/>
+    <div class="section-heading">
+      <h1>DASHBOARD</h1>
+    </div>
+
+    <div class="container">
+      <table class="table table-info">
+        <tbody>
+          <tr>
+            <td> <big>Application No: </big> <b>{{host.application_number}}</b> </td>
+            <td> <big>Host:</big> <b>{{host.host_name}}</b> </td>
+            <td> <a href="">Invitation template</a></td>
+          </tr>          
+          <tr>
+            <td> <big>Mobile:</big> <b>{{host.mobile_number}}</b> </td>
+            <td> <big>Email:</big> <b>{{host.email}}</b> </td>
+            <td> <big>From:</big> <b>{{host.from_kakching}}</b> </td>
+          </tr>
+          <tr>
+            <td> <big>Address:</big> <b>{{host.address}}</b> </td>
+            <td> <big>Event:</big> <b>{{host.event}}</b> </td>
+            <td> <big>Event Date:</big> <b>{{host.event_date}}</b> </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="container">
+      <table class="table table-sm table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Invitee</th>
+            <th scope="col">Contact No</th>
+            <th scope="col">Address</th>
+            <th scope="col">Invitation</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for invitee in invitees %}
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{invitee.name}}</td>
+            <td>{{invitee.mobile_no}}</td>
+            <td>{{invitee.address}}</td>
+            <td><a href="">Preview</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <br/><br/><br/><br/>
+
+{% endblock %}

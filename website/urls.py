@@ -14,4 +14,5 @@ urlpatterns = [
     path('faq.html', views.faq, name='faq'),
     path('statusView.html', statusView.as_view(), name="status-details"),
     path('register/<str:evnt>', eventView, name="evnt"),
+    path('dashboard/<appliNo>', views.dashboard, name='dashboard'),
 ]

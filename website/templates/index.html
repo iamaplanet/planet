@@ -1,28 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block navlink %}
-<li class="nav-item active">
-  <a class="nav-link" href="index.html">Home
-  <span class="sr-only">(current)</span>
-  </a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="register.html">Register Now</a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="status.html">My Status</a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="faq.html">FAQ</a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="about.html">About Us</a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="contact.html">Contact Us</a>
-</li>
-{% endblock %}
 
 {% block content %}
     <!-- Page Content -->
@@ -42,7 +20,7 @@
         <div class="item item-1">
           <div class="img-fill">
               <div class="text-content">
-                <h6>Organise Events without worrying about handing out invitations</h6>
+                <h6>Organise Events without worrying about handing out invitations</h6><br/>
                 <h4>Ishaifu</h4>
                 <p>Prosper through Innovations</p>
                 <a href="register.html" class="filled-button">Register Event Now</a>
@@ -59,15 +37,15 @@
         <div class="row">
           <div class="col-md-12">
             <div class="section-heading">
-              <h2>Browse Event</h2>
-              <span>Choose your right event and we will handle your invitaion</span>
+              <h2>Browse Event</h2><br/>
+              <span>Choose your right event and we will handle your invitation</span>
             </div>
           </div>
           <div class="col-md-4">
             <div class="service-item">
               <img src={% static 'website/assets/images/service_01.jpg' %} alt="">
               <div class="down-content">
-                <h4>Sosti Puja</h4>
+                <h4>Sosti Puja</h4><br/>
                 <a href="{% url 'evnt' 'sosti' %}" class="filled-button">Register</a>
               </div>
             </div>
@@ -76,7 +54,7 @@
             <div class="service-item">
               <img src={% static 'website/assets/images/service_02.jpg' %} alt="">
               <div class="down-content">
-                <h4>Na Hutpa/Churakaran</h4>
+                <h4>Na Hutpa/Churakaran</h4><br/>
                 <a href="{% url 'evnt' 'churakaran' %}" class="filled-button">Register</a>
               </div>
             </div>
@@ -85,7 +63,7 @@
             <div class="service-item">
               <img src={% static 'website/assets/images/service_03.jpg' %} alt="">
               <div class="down-content">
-                <h4>Birthday Party</h4>
+                <h4>Birthday Party</h4><br/>
                 <a href="{% url 'evnt' 'birthday' %}" class="filled-button">Register</a>
               </div>
             </div>
@@ -95,7 +73,7 @@
             <div class="service-item">
               <img src={% static 'website/assets/images/service_04.jpg' %} alt="">
               <div class="down-content">
-                <h4>Luhongba/Wedding</h4>
+                <h4>Luhongba/Wedding</h4><br/>
                 <a href="{% url 'evnt' 'luhongba' %}" class="filled-button">Register</a>
               </div>
             </div>
@@ -104,7 +82,7 @@
             <div class="service-item">
               <img src={% static 'website/assets/images/service_05.jpg' %} alt="">
               <div class="down-content">
-                <h4>Aasti</h4>
+                <h4>Aasti</h4><br/>
                 <a href="{% url 'evnt' 'aasti' %}" class="filled-button">Register</a>
               </div>
             </div>
@@ -113,7 +91,7 @@
             <div class="service-item">
               <img src={% static 'website/assets/images/service_06.jpg' %} alt="">
               <div class="down-content">
-                <h4>Sharradha</h4>
+                <h4>Sharradha</h4><br/>
                 <a href="{% url 'evnt' 'sharradha' %}" class="filled-button">Register</a>
               </div>
             </div>
@@ -123,7 +101,7 @@
             <div class="service-item">
               <img src={% static 'website/assets/images/service_07.jpg' %} alt="">
               <div class="down-content">
-                <h4>Firoi/Death Aniversary</h4>
+                <h4>Firoi/Death Aniversary</h4><br/>
                 <a href="{% url 'evnt' 'firoi' %}" class="filled-button">Register</a>
               </div>
             </div>
@@ -132,7 +110,7 @@
             <div class="service-item">
               <img src={% static 'website/assets/images/service_08.jpg' %} alt="">
               <div class="down-content">
-                <h4>Vacations</h4>
+                <h4>Vacations</h4><br/>
                 <a href="{% url 'evnt' 'vacations' %}" class="filled-button">Register</a>
               </div>
             </div>
@@ -141,7 +119,7 @@
             <div class="service-item">
               <img src={% static 'website/assets/images/service_09.jpg' %} alt="">
               <div class="down-content">
-                <h4>Trips/Tours</h4>
+                <h4>Trips/Tours</h4><br/>
                 <a href="{% url 'evnt' 'trips' %}" class="filled-button">Register</a>
               </div>
             </div>

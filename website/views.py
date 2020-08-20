@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 from django.views.generic import ListView, DetailView
 from .models import Costumer, Invitation, Invitee
 from .forms import CostumerForm, InvitationForm, InviteeForm
@@ -59,6 +60,10 @@ def contact(request):
     return render(request, 'contact.html', {})
 
 def status(request):
+    if request.method == "POST":
+        application_number = request.POST.get('application_number')
+        host = Costumer.objects.get(application_number=application_number)
+        return redirect('dashboard', appliNo=application_number)
     return render(request, 'status.html', {})
 
 def invitation(request):
@@ -92,15 +97,9 @@ def people(request):
             form = InviteeForm(invitee)
             if form.is_valid():
                 form.save()
-        return render(request, 'index.html', {})
-
-        data = {'host':host,'invitation':invitation}
-        form = InviteeForm(data)
-        if form.is_valid():
-            form.save()
-            return render(request, 'people.html', {})
-        else:
-            return render(request, 'invitation.html', {'msg':form.errors,'invitation':invitation,'host':host})
+            else:
+                return render(request, 'people.html', {'msg':form.errors})
+        return redirect('dashboard', appliNo=application_number)
     return render(request, 'people.html', {})
 
 def faq(request):
@@ -117,3 +116,8 @@ def eventView(request, evnt):
     application_number = str(Date_)+str(random_no)
 
     return render(request, 'registerEvent.html', {'evnt':evnt, 'date':application_number})
+
+def dashboard(request, appliNo):
+    host = Costumer.objects.get(application_number=appliNo)
+    invitees = Invitee.objects.get_queryset().filter(host=host)
+    return render(request, 'dashboard.html', {"host":host, "invitees":invitees})
