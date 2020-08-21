@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block title %}About{% endblock %}
+{% load static %}
+
+
+{% block content %}
+
+    <!-- Page Content -->
+    <div class="page-heading header-text">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <br/><br/><br/><br/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="more-info about-info">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="more-info-content">
+              <div class="row">
+                <div class="col-md-6 align-self-center">
+                  <div class="right-content">
+                    <span>our ambition</span>
+                    <h2>Get to know about <em>our company</em></h2>
+                    <p>Ishaifu is a start up founded by Maichael Sorokhaibam and Nelson Kshetrimayum.
+                    <br><br>Here at Ishaifu, we try to provide low cost, convinient invitations for your events.</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="left-image">
+                    <img src={% static 'website/assets/images/about-image.jpg' %} alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="team">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h2>Our team <em>members</em></h2>
+              <span>With dedication and efforts</span>
+            </div>
+          </div>
+          <div class="col-md-2"></div>
+          <div class="col-md-4">
+            <div class="team-item">
+              <img src={% static 'website/assets/images/team_01.jpg' %} alt="">
+              <div class="down-content">
+                <h4>Maichael Sorokhaibam</h4>
+                <span>Co-Founder/Creative Director</span>
+                <p>Alumnus of Ramjas College <br/> Bachelor's Degree in Physical Sciences</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="team-item">
+              <img src={% static 'website/assets/images/team_02.jpg' %} alt="">
+              <div class="down-content">
+                <h4>Nelson Kshetrimayum</h4>
+                <span>Co-Founder/Product Manager</span>
+                <p>Int. M.Sc. student at National Institute of Science Education and Research under School of Physical Sciences.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<br><br><br>
+
+{% endblock %}

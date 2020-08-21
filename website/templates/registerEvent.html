@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Register{% endblock %}
+{% block head %}
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href={% static 'register/vendor/bootstrap/css/bootstrap.min.css' %}>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static 'register/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static 'register/fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %}>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static 'register/vendor/animate/animate.css' %}>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static 'register/vendor/css-hamburgers/hamburgers.min.css' %}>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static 'register/vendor/select2/select2.min.css' %}>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static 'register/css/util.css' %}>
+	<link rel="stylesheet" type="text/css" href={% static 'register/css/main.css' %}>
+<!--===============================================================================================-->
+{% endblock %}
+
+
+{% block content %}
+
+    <!-- Page Content -->
+    <div class="page-heading header-text">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <br/><br/><br/><br/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container-contact100" style="background-image: url('../../static/register/images/bg-01.jpg');">
+      <div class="wrap-contact100">
+  
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            {% endfor %}
+          {% endif %}
+
+
+        <form method="POST" action="{% url 'register' %}" class="contact100-form">
+          {% csrf_token %}
+          <span class="contact100-form-title">
+            Register Event
+          </span>
+          <div class="form-group wrap-input100">
+            <input type="text" class="form-control" name="application_number" value="{{ date}}"  readonly>
+          </div>
+          <div class="wrap-input100 rs1-wrap-input100">
+            <label class="label-input100">Host Name:</label>
+            <input type="text" class="form-control" placeholder="Host Name" name="host_name" value="{{ host_name }}">
+          </div>
+          <div class="form-group rs1-wrap-input100">
+            <label class="label-input100">Mobile Number:</label>
+            <input type="text" class="form-control" placeholder="Mobile Number" name="mobile_number" value="{{mobile_number}}">
+          </div>
+          <div class="form-group wrap-input100">
+            <label class="label-input100">Email Address:</label>
+            <input type="email" class="form-control" aria-describedby="emailHelp" name="email" placeholder="Email Address" value="{{ email }}">
+          </div>
+          <fieldset class="form-inline">
+            <legend class="col-form-label wrap-input100 mb-2 mr-sm-2 label-input100">From within Kakching?</legend>
+            <div class="form-check wrap-input100 mb-2 mr-sm-2">
+              <input class="form-check-input" type="radio" name="from_kakching" value="True" checked>
+              <label class="form-check-label label-input100">
+                Yes
+              </label>
+            </div>
+            <div class="form-check wrap-input100 mb-2 mr-sm-2">
+              <input class="form-check-input" type="radio" name="from_kakching" value="False">
+              <label class="form-check-label label-input100" for="gridRadios2">
+                No
+              </label>
+            </div>
+          </fieldset>
+          <div class="form-group wrap-input100">
+            <label class="label-input100">Address:</label>
+            <input type="text" class="form-control" placeholder="Address" name="address" value="{{ address }}">
+          <hr>
+          <label class="my-1 mr-2 label-input100" for="inlineFormCustomSelectPref">Event:</label>
+
+        {% if evnt == 'sosti' %}
+          <input type="text" class="form-control" name="event" value="Sosti Puja"  readonly>
+
+        {% elif evnt == 'churakaran' %}
+          <input type="text" class="form-control" name="event" value="Na Hutpa/Churakaran"  readonly>
+          
+        {% elif evnt == 'birthday' %}
+          <input type="text" class="form-control" name="event" value="Birthday Party"  readonly>
+        
+        {% elif evnt == 'luhongba' %}
+          <input type="text" class="form-control" name="event" value="Luhongba/Wedding"  readonly>
+          
+        {% elif evnt == 'aasti' %}
+          <input type="text" class="form-control" name="event" value="Aasti"  readonly>
+        
+        {% elif evnt == 'sharradha' %}
+          <input type="text" class="form-control" name="event" value="Sharradha"  readonly>
+        
+        {% elif evnt == 'firoi' %}
+          <input type="text" class="form-control" name="event" value="Firoi/Death Aniversary"  readonly>
+          
+        {% elif evnt == 'vacations' %}
+          <input type="text" class="form-control" name="event" value="Vacations"  readonly>
+          
+        {% elif evnt == 'trips' %}
+          <input type="text" class="form-control" name="event" value="Trips/Tours"  readonly>
+
+        {% endif %}
+          <div class="form-group wrap-input100">
+            <label class="label-input100">Event Date:</label>
+            <input class="form-control" type="date" name="event_date" value="{{ event_date }}">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+    <br><br><br><br><br><br>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title %}Invitation Format{% endblock %}
+{% load static %}
+
+{% block navlink %}{% endblock %}
+
+{% block content %}
+
+    <!-- Page Content -->
+    <div class="page-heading header-text">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <br/><br/><br/><br/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-heading">
+      <h2>SELECT INVITATION</h2>
+      <span>Choose from our wide range of preset invitation templates</span>
+    </div>
+
+
+    {{msg}}{{invitation}}{{host}}
+    <div class="container col-md-6">
+      <form method="POST" action="{% url 'invitation' %}">
+        {% csrf_token %}
+        <input type="text" class="form-control" placeholder="Host Name" name="application_number" value="{{ application_number }}" readonly><br>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="invitation" id="invitation1" value="1" checked>
+          <label class="form-check-label" for="invitation1">
+            <div class="col-md-6">
+              <div class="left-image">
+                <img src={% static 'website/assets/images/about-image.jpg' %} alt="">
+              </div>
+            </div>
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="invitation" id="invitation2" value="2">
+          <label class="form-check-label" for="invitation2">
+            <div class="col-md-6">
+              <div class="left-image">
+                <img src={% static 'website/assets/images/about-image.jpg' %} alt="">
+              </div>
+            </div>
+          </label>
+        </div>
+        <div class="form-check ">
+          <input class="form-check-input" type="radio" name="invitation" id="invitation3" value="3">
+          <label class="form-check-label" for="invitation3">
+            <div class="col-md-6">
+              <div class="left-image">
+                <img src={% static 'website/assets/images/about-image.jpg' %} alt="">
+              </div>
+            </div>
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Confirm</button>
+      </form>
+    </div>
+    <br/><br/>
+    
+{% endblock %}

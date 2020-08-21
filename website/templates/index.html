@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <!-- Page Content -->
+    <div class="page-heading header-text">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <br/><br/><br/><br/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Banner Starts Here -->
+    <div class="main-banner header-text" id="top">
+      <div class="Modern-Slider">
+        <!-- Item -->
+        <div class="item item-1">
+          <div class="img-fill">
+              <div class="text-content">
+                <h6>Organise Events without worrying about handing out invitations</h6><br/>
+                <h4>Ishaifu</h4>
+                <p>Prosper through Innovations</p>
+                <a href="register.html" class="filled-button">Register Event Now</a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Banner Ends Here -->
+
+    
+    <div class="services">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h2>Browse Event</h2><br/>
+              <span>Choose your right event and we will handle your invitation</span>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-item">
+              <img src={% static 'website/assets/images/service_01.jpg' %} alt="">
+              <div class="down-content">
+                <h4>Sosti Puja</h4><br/>
+                <a href="{% url 'evnt' 'sosti' %}" class="filled-button">Register</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-item">
+              <img src={% static 'website/assets/images/service_02.jpg' %} alt="">
+              <div class="down-content">
+                <h4>Na Hutpa/Churakaran</h4><br/>
+                <a href="{% url 'evnt' 'churakaran' %}" class="filled-button">Register</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-item">
+              <img src={% static 'website/assets/images/service_03.jpg' %} alt="">
+              <div class="down-content">
+                <h4>Birthday Party</h4><br/>
+                <a href="{% url 'evnt' 'birthday' %}" class="filled-button">Register</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="service-item">
+              <img src={% static 'website/assets/images/service_04.jpg' %} alt="">
+              <div class="down-content">
+                <h4>Luhongba/Wedding</h4><br/>
+                <a href="{% url 'evnt' 'luhongba' %}" class="filled-button">Register</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-item">
+              <img src={% static 'website/assets/images/service_05.jpg' %} alt="">
+              <div class="down-content">
+                <h4>Aasti</h4><br/>
+                <a href="{% url 'evnt' 'aasti' %}" class="filled-button">Register</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-item">
+              <img src={% static 'website/assets/images/service_06.jpg' %} alt="">
+              <div class="down-content">
+                <h4>Sharradha</h4><br/>
+                <a href="{% url 'evnt' 'sharradha' %}" class="filled-button">Register</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="service-item">
+              <img src={% static 'website/assets/images/service_07.jpg' %} alt="">
+              <div class="down-content">
+                <h4>Firoi/Death Aniversary</h4><br/>
+                <a href="{% url 'evnt' 'firoi' %}" class="filled-button">Register</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-item">
+              <img src={% static 'website/assets/images/service_08.jpg' %} alt="">
+              <div class="down-content">
+                <h4>Vacations</h4><br/>
+                <a href="{% url 'evnt' 'vacations' %}" class="filled-button">Register</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-item">
+              <img src={% static 'website/assets/images/service_09.jpg' %} alt="">
+              <div class="down-content">
+                <h4>Trips/Tours</h4><br/>
+                <a href="{% url 'evnt' 'trips' %}" class="filled-button">Register</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+{% endblock %}
+
+{% block footer %}
+<!-- Footer Starts Here -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 footer-item">
+        <h4>Ishaifu Pvt. Ltd.</h4>
+        <p>Ishaifu Office<br>Kakching Ningthou Leikai<br>Opp. Allahabad Bank</p>
+        <ul class="social-icons">
+          <li><a rel="nofollow" href="https://fb.com/templatemo" target="_blank"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 footer-item">
+
+      </div>
+      <div class="col-md-3 footer-item">
+        <h4>Additional Pages</h4>
+        <ul class="menu-list">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-3 footer-item last-item">
+        <h4>Leave a feedback</h4>
+        <div class="contact-form">
+          <form id="contact footer-contact" action="" method="post">
+            <div class="row">
+              <div class="col-lg-12">
+                <fieldset>
+                  <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your Message" required=""></textarea>
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <button type="submit" id="form-submit" class="filled-button">Send Feedback</button>
+                </fieldset>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% endblock %}
