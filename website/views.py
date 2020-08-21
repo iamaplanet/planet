@@ -56,6 +56,39 @@ def register(request):
     else:
         return render(request, 'register.html', {'date':application_number})
 
+def eventView(request, evnt):
+    Date = datetime.datetime.now()
+    Date_ = Date.strftime("%Y-%m%d-%H%M-%S")
+    n = random.randint(10,99)
+    application_number = Date_ + str(n)
+
+    if request.method == "POST":
+        form = CostumerForm(request.POST or None)
+        if form.is_valid():
+            application_number = request.POST['application_number']
+            form.save()
+            return render(request, 'invitation.html', {'application_number':application_number})
+        else:
+            application_number = request.POST['application_number']
+            host_name = request.POST['host_name']
+            mobile_number = request.POST['mobile_number']
+            email = request.POST['email']
+            from_kakching = request.POST['from_kakching']
+            address = request.POST['address']
+            event_date = request.POST['event_date']
+            messages.success(request, ('There was an error in your form! Please try again...'))
+            return render(request, 'register.html', {'application_number':application_number,
+                'host_name': host_name,
+                'mobile_number': mobile_number,
+                'email': email,
+                'from_kakching': from_kakching,
+                'address': address,
+                'event_date': event_date,
+            })
+
+    else:
+        return render(request, 'registerEvent.html', {'evnt':evnt, 'date':application_number})
+
 def contact(request):
     return render(request, 'contact.html', {})
 
@@ -104,18 +137,6 @@ def people(request):
 
 def faq(request):
     return render(request, 'faq.html', {})
-
-class statusView(ListView):
-    model = Costumer
-    template_name = 'statusView.html'
-
-def eventView(request, evnt):
-    Date = datetime.datetime.now()
-    Date_ = Date.strftime("%Y%m%d%H")
-    random_no = random.randint(1000, 9999)
-    application_number = str(Date_)+str(random_no)
-
-    return render(request, 'registerEvent.html', {'evnt':evnt, 'date':application_number})
 
 def dashboard(request, appliNo):
     host = Costumer.objects.get(application_number=appliNo)

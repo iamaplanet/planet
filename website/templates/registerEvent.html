@@ -56,7 +56,7 @@
             Register Event
           </span>
           <div class="form-group wrap-input100">
-            <input type="text" class="form-control" name="application_number" value="Application No : {{ date}}"  readonly>
+            <input type="text" class="form-control" name="application_number" value="{{ date}}"  readonly>
           </div>
           <div class="wrap-input100 rs1-wrap-input100">
             <label class="label-input100">Host Name:</label>
@@ -122,10 +122,6 @@
           <div class="form-group wrap-input100">
             <label class="label-input100">Event Date:</label>
             <input class="form-control" type="date" name="event_date" value="{{ event_date }}">
-          </div>
-          <div class="form-group wrap-input100">
-            <label class="label-input100">Description:</label>
-            <textarea class="form-control" name="description" rows="3" placeholder="Enter description of the event here....">{{ description }}</textarea>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>

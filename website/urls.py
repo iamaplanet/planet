@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import statusView, eventView
+from .views import eventView
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -12,7 +12,6 @@ urlpatterns = [
     path('invitation.html', views.invitation, name='invitation'),
     path('status.html', views.status, name='status'),
     path('faq.html', views.faq, name='faq'),
-    path('statusView.html', statusView.as_view(), name="status-details"),
     path('register/<str:evnt>', eventView, name="evnt"),
     path('dashboard/<appliNo>', views.dashboard, name='dashboard'),
 ]
